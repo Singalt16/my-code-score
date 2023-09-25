@@ -39,7 +39,6 @@ def parse_grade(raw_text):
 def setup_gpt_api():
     load_dotenv()
     api_key = os.getenv("API_KEY")
-    api_key = "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"
     openai.api_key = api_key
 
 
