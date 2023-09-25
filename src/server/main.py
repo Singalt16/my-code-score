@@ -1,18 +1,24 @@
 import openai
 import os
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../frontend", static_folder="../static")
 CORS(app)
 
 separator = "----------"
 
 
+@app.route("/")
+def get_home_page():
+    return render_template("index.html")
+
+
 @app.route("/get_grade", methods=["POST"])
 def get_grade():
     try:
+        setup_gpt_api()
         data = request.get_json()
         context = data.get("context", None)
         code = data.get("code", None)
@@ -73,5 +79,4 @@ def get_grade(context: str, code: str):
 
 
 if __name__ == "__main__":
-    setup_gpt_api()
     app.run()
