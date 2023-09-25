@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My AI Grade</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="divider">
+        <label for="context">Context</label>
+        <textarea
+          name="context"
+          id="context"
+          cols="30"
+          rows="10"
+          placeholder="Enter any context for your code"
+        ></textarea>
+      </div>
+
+      <div class="divider">
+        <label for="code">Code</label>
+        <textarea
+          name="code"
+          id="code"
+          cols="30"
+          rows="10"
+          placeholder="Enter your code"
+        ></textarea>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="grade">A</h2>
+        <p id="grade-explanation">This is the explanation for the grade</p>
+      </div>
+    </div>
+    <button onclick="getGrade()">Grade my Code</button>
+
+    <script src="index.js"></script>
+  </body>
+</html>
